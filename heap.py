@@ -5,13 +5,16 @@ filaPacientes = []
 
 
 def exibirMenu():
-    print('MENU:')
+    print('\n' + '='*30) #linha separadora
+    print('      MENU HOSPITAL')
+    print('='*30) #linha separadora
+
     print('1- Cadastrar paciente')
     print('2 - Atender paciente')
     print('3- Mostrar fila de pacientes')
     print('4- Sair')
 
-    acao = int(input('Digite o número da ação que dejesa fazer:'))
+    acao = int(input('Digite o número da ação que dejesa fazer: '))
 
     match acao:  #switch-case
         case 1: 
@@ -21,16 +24,22 @@ def exibirMenu():
         case 3: 
             exibirFilaPacientes()
         case 4: 
+            print('\n' + '-'*30) #linha separadora
+            print('   ATENDIMENTO FINALIZADO')
+            print('-'*30) #linha separadora
             sys.exit() # Fecha o programa 
 
 
 
 
 def cadastrarPaciente():
-    print("Preencha o cadastro do paciente abaixo!")
-    nome = input('Nome:')
-    prioridade = int(input('Prioridade (1- emergencia, 2- urgente, 3- pouco urgente, 4- não urgente):'))
-    idade = int(input('Idade:'))
+    print('\n' + '-'*30) #linha separadora
+    print('      CADASTRO')
+    print('-'*30) #linha separadora
+
+    nome = input('Nome: ')
+    prioridade = int(input('Prioridade (1- emergencia, 2- urgente, 3- pouco urgente, 4- não urgente): '))
+    idade = int(input('Idade: '))
 
     #crio uma tupla de dados e insiro na heap 
     #o heap ordena a prioridade pelo 1º elemento da tupla, caso o 1º de empate, ele pula para o 2º e assim vai
@@ -43,17 +52,27 @@ def cadastrarPaciente():
 
 
 def  atenderPaciente():
-    print('atender')
+    print('\n' + '-'*30) #linha separadora
+    print('      ATENDIMENTO')
+    print('-'*30) #linha separadora
 
     if(filaPacientes):
         paciente1 = heapq.heappop(filaPacientes)
-        print(f"Paciente {paciente1[2]} se direcione para o atendimento")
+
+        print(f"Chamando: {paciente1[2].upper()}")
+        print(f"Prioridade: {paciente1[0]} | Idade: {-paciente1[1]}")
+
+    else:
+        print(f"A fila está vazia no momento.")
 
     exibirMenu()
 
 
 def exibirFilaPacientes():
-    print('FILA:')
+    print('\n' + '-'*30) #linha separadora
+    print('      FILA')
+    print('-'*30) #linha separadora
+
     # exibe todos os pacientes em ordem real de prioridade
     #o heapq.nsmallest(parm1, parm2) é nativo da biblioteca, onde o parm1 é a qtd de items da fila que quero que percorra e o parm2 é a fila, o heap que ele vai percorrer
     for p in heapq.nsmallest(len(filaPacientes), filaPacientes):
