@@ -3,7 +3,7 @@ import sys
 import logging
 
 filaPacientes = []
-
+contadorPoucoUrgente = 0
 
 # configura o arquivo, o nível de log e o formato da mensagem
 logging.basicConfig(
@@ -31,7 +31,7 @@ def exibirMenu():
         case 1: 
             cadastrarPaciente()
         case 2:
-            atenderPaciente()
+            atenderPaciente(0)
         case 3: 
             exibirFilaPacientes()
         case 4: 
@@ -66,18 +66,45 @@ def cadastrarPaciente():
 
 
 
-def  atenderPaciente():
+def  atenderPaciente(prioridadePassada):
+    global contadorPoucoUrgente # Permite alterar a variável lá de fora
+
     print('\n' + '-'*30) #linha separadora
     print('      ATENDIMENTO')
     print('-'*30) #linha separadora
 
     if filaPacientes:
-        paciente1 = heapq.heappop(filaPacientes)
 
-        print(f"Chamando: {paciente1[2].upper()}")
-        print(f"Prioridade: {paciente1[0]} | Idade: {-paciente1[1]}")
+        if contadorPoucoUrgente == 3:
+            for i in range(len(filaPacientes)):
+                if filaPacientes[i][0] == 4:
+                    pacienteEspecf = filaPacientes.pop(i) #removei ele da fila
+                    heapq.heapify(filaPacientes) # Reorganiza a fila após o pop manual
 
-        logging.info(f"Paciente atendido - {paciente1[2]}, {paciente1[0]}, {paciente1[1]}.") # Registra log     
+                    print(f"Chamando: {pacienteEspecf[2].upper()}")
+                    print(f"Prioridade: {pacienteEspecf[0]} | Idade: {-pacienteEspecf[1]}")
+                    logging.info(f"Paciente atendido - {pacienteEspecf[2]}, {pacienteEspecf[0]}, {pacienteEspecf[1]}.") # Registra log     
+                    contadorPoucoUrgente = 0
+                    break
+                else:
+                    paciente1 = heapq.heappop(filaPacientes)
+                    print(f"Chamando: {paciente1[2].upper()}")
+                    print(f"Prioridade: {paciente1[0]} | Idade: {-paciente1[1]}")
+
+                    logging.info(f"Paciente atendido - {paciente1[2]}, {paciente1[0]}, {paciente1[1]}.") # Registra log     
+                    contadorPoucoUrgente = 0
+                    
+        else:
+            paciente1 = heapq.heappop(filaPacientes)
+
+            print(f"Chamando: {paciente1[2].upper()}")
+            print(f"Prioridade: {paciente1[0]} | Idade: {-paciente1[1]}")
+
+            logging.info(f"Paciente atendido - {paciente1[2]}, {paciente1[0]}, {paciente1[1]}.") # Registra log     
+            if paciente1[0] == 3:
+                contadorPoucoUrgente = contadorPoucoUrgente + 1
+
+
     else:
         print(f"A fila está vazia no momento.")
         logging.info(f"fila está vazia no momento.\n") # Registra log 
@@ -98,6 +125,8 @@ def exibirFilaPacientes():
 
    # logging.info(f"Fila: {len(filaPacientes)} pacientes aguardando.") # Registra log       
     exibirMenu()
+
+
 
 
 
