@@ -35,7 +35,7 @@ def exibirMenu():
         case 3: 
             exibirFilaPacientes()
         case 4: 
-            logging.info("Atendimento finalizado./n") # Registra log 
+            logging.info("Atendimento finalizado.\n") # Registra log 
 
             print('\n' + '-'*30) #linha separadora
             print('   ATENDIMENTO FINALIZADO')
@@ -59,7 +59,8 @@ def cadastrarPaciente():
     #o heap ordena a prioridade pelo 1º elemento da tupla, caso o 1º de empate, ele pula para o 2º e assim vai
     heapq.heappush(filaPacientes, (prioridade, -idade, nome))
 
-    logging.info(f"Paciente cadastrado {(prioridade, -idade, nome)}.") # Registra log 
+    #logging.info(f"Paciente cadastrado {(prioridade, idade, nome)}.") # Registra log 
+    logging.info(f"Paciente cadastrado -> Prioridade: {prioridade} - Idade: {idade} - Nome: {nome}.") # Registra log 
     exibirMenu()
 
 
@@ -101,8 +102,7 @@ def  atenderPaciente(prioridadePassada):
 
     print(f"Chamando: {paciente_atendido[2].upper()}")
     print(f"Prioridade: {paciente_atendido[0]} | Idade: {-paciente_atendido[1]}")
-    logging.info(f"Paciente atendido - {paciente_atendido}")
-    #logging.info(f"Paciente atendido - {pacienteEspecf[2]}, {pacienteEspecf[0]}, {pacienteEspecf[1]}.") # Registra log   
+    logging.info(f"Paciente atendido -> Prioridade: {paciente_atendido[2]} - Idade: {-paciente_atendido[1]} - Nome: {paciente_atendido[2]}.") # Registra log 
 
     
     if paciente_atendido[0] == 3:
@@ -130,9 +130,8 @@ def exibirFilaPacientes():
     #o heapq.nsmallest(parm1, parm2) é nativo da biblioteca, onde o parm1 é a qtd de items da fila que quero que percorra e o parm2 é a fila, o heap que ele vai percorrer
     for p in heapq.nsmallest(len(filaPacientes), filaPacientes):
         print(f"Prioridade: {p[0]} - Idade: {-p[1]} - Nome: {p[2]}")
-        logging.info(f"Fila - Prioridade: {p[0]} - Idade: {-p[1]} - Nome: {p[2]}") # Registra log 
-
-   # logging.info(f"Fila: {len(filaPacientes)} pacientes aguardando.") # Registra log       
+        logging.info(f"Fila -> Prioridade: {p[0]} - Idade: {-p[1]} - Nome: {p[2]}") # Registra log 
+    
     exibirMenu()
 
 

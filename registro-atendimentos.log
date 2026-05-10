@@ -1,0 +1,37 @@
+10/05/2026 17:44:13 - INFO - fila está vazia no momento.
+10/05/2026 17:44:22 - INFO - Fila está vazia no momento.
+10/05/2026 17:44:48 - INFO - Paciente cadastrado (2, 18, 'Maria').
+10/05/2026 17:45:00 - INFO - Paciente cadastrado (3, 30, 'João').
+10/05/2026 17:45:12 - INFO - Paciente cadastrado (3, 35, 'Larissa').
+10/05/2026 17:45:24 - INFO - Paciente cadastrado (4, 10, 'Pedro').
+10/05/2026 17:45:36 - INFO - Paciente cadastrado (3, 40, 'Joana').
+10/05/2026 17:45:44 - INFO - Paciente cadastrado (1, 70, 'Zeca').
+10/05/2026 17:45:54 - INFO - Paciente cadastrado (2, 60, 'Jasmin').
+10/05/2026 17:46:36 - INFO - Fila -> Prioridade: 1 - Idade: 70 - Nome: Zeca
+10/05/2026 17:46:36 - INFO - Fila -> Prioridade: 2 - Idade: 60 - Nome: Jasmin
+10/05/2026 17:46:36 - INFO - Fila -> Prioridade: 2 - Idade: 18 - Nome: Maria
+10/05/2026 17:46:36 - INFO - Fila -> Prioridade: 3 - Idade: 40 - Nome: Joana
+10/05/2026 17:46:36 - INFO - Fila -> Prioridade: 3 - Idade: 35 - Nome: Larissa
+10/05/2026 17:46:36 - INFO - Fila -> Prioridade: 3 - Idade: 30 - Nome: João
+10/05/2026 17:46:36 - INFO - Fila -> Prioridade: 4 - Idade: 10 - Nome: Pedro
+10/05/2026 17:47:35 - INFO - Paciente cadastrado (3, 37, 'Xirley').
+10/05/2026 17:47:38 - INFO - Fila -> Prioridade: 1 - Idade: 70 - Nome: Zeca
+10/05/2026 17:47:38 - INFO - Fila -> Prioridade: 2 - Idade: 60 - Nome: Jasmin
+10/05/2026 17:47:38 - INFO - Fila -> Prioridade: 2 - Idade: 18 - Nome: Maria
+10/05/2026 17:47:38 - INFO - Fila -> Prioridade: 3 - Idade: 40 - Nome: Joana
+10/05/2026 17:47:38 - INFO - Fila -> Prioridade: 3 - Idade: 37 - Nome: Xirley
+10/05/2026 17:47:38 - INFO - Fila -> Prioridade: 3 - Idade: 35 - Nome: Larissa
+10/05/2026 17:47:38 - INFO - Fila -> Prioridade: 3 - Idade: 30 - Nome: João
+10/05/2026 17:47:38 - INFO - Fila -> Prioridade: 4 - Idade: 10 - Nome: Pedro
+10/05/2026 17:47:49 - INFO - Paciente atendido -> (1, 70, 'Zeca')
+10/05/2026 17:48:05 - INFO - Paciente atendido -> (2, 60, 'Jasmin')
+10/05/2026 17:48:13 - INFO - Paciente atendido -> (2, 18, 'Maria')
+10/05/2026 17:48:18 - INFO - Paciente atendido -> (3, 40, 'Joana')
+10/05/2026 17:49:00 - INFO - Paciente atendido -> (3, 37, 'Xirley')
+10/05/2026 17:49:05 - INFO - Paciente atendido -> (3, 35, 'Larissa')
+10/05/2026 17:49:13 - INFO - Fila - Prioridade: 3 - Idade: 30 - Nome: João
+10/05/2026 17:49:13 - INFO - Fila - Prioridade: 4 - Idade: 10 - Nome: Pedro
+10/05/2026 17:49:28 - INFO - Paciente atendido -> (4, 10, 'Pedro')
+10/05/2026 17:49:36 - INFO - Paciente atendido -> (3, 30, 'João')
+10/05/2026 17:49:40 - INFO - Fila está vazia no momento.
+10/05/2026 17:49:47 - INFO - Atendimento finalizado.
