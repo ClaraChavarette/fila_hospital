@@ -73,43 +73,46 @@ def  atenderPaciente(prioridadePassada):
     print('      ATENDIMENTO')
     print('-'*30) #linha separadora
 
-    if filaPacientes:
-
-        if contadorPoucoUrgente == 3:
-            for i in range(len(filaPacientes)):
-                if filaPacientes[i][0] == 4:
-                    pacienteEspecf = filaPacientes.pop(i) #removei ele da fila
-                    heapq.heapify(filaPacientes) # Reorganiza a fila após o pop manual
-
-                    print(f"Chamando: {pacienteEspecf[2].upper()}")
-                    print(f"Prioridade: {pacienteEspecf[0]} | Idade: {-pacienteEspecf[1]}")
-                    logging.info(f"Paciente atendido - {pacienteEspecf[2]}, {pacienteEspecf[0]}, {pacienteEspecf[1]}.") # Registra log     
-                    contadorPoucoUrgente = 0
-                    break
-                else:
-                    paciente1 = heapq.heappop(filaPacientes)
-                    print(f"Chamando: {paciente1[2].upper()}")
-                    print(f"Prioridade: {paciente1[0]} | Idade: {-paciente1[1]}")
-
-                    logging.info(f"Paciente atendido - {paciente1[2]}, {paciente1[0]}, {paciente1[1]}.") # Registra log     
-                    contadorPoucoUrgente = 0
-                    
-        else:
-            paciente1 = heapq.heappop(filaPacientes)
-
-            print(f"Chamando: {paciente1[2].upper()}")
-            print(f"Prioridade: {paciente1[0]} | Idade: {-paciente1[1]}")
-
-            logging.info(f"Paciente atendido - {paciente1[2]}, {paciente1[0]}, {paciente1[1]}.") # Registra log     
-            if paciente1[0] == 3:
-                contadorPoucoUrgente = contadorPoucoUrgente + 1
-
-
-    else:
+    if not filaPacientes:
         print(f"A fila está vazia no momento.")
-        logging.info(f"fila está vazia no momento.\n") # Registra log 
+        logging.info(f"fila está vazia no momento.") # Registra log 
+        exibirMenu()
+        return
+
+    paciente_atendido = None
+  
+    if contadorPoucoUrgente >= 3:   # após 3 atendimentos "Pouco Urgente", tenta prioridade 4
+
+        indice_nao_urgente = -1
+        for i in range(len(filaPacientes)):
+            if filaPacientes[i][0] == 4:
+                indice_nao_urgente = i
+                break
+        
+        if indice_nao_urgente != -1:
+            paciente_atendido = filaPacientes.pop(indice_nao_urgente) # Remove o paciente não urgente encontrado
+            heapq.heapify(filaPacientes) # Reorganiza
+            contadorPoucoUrgente = 0 # Reseta o contador
+            print(">>> Atendimento Especial (Não Urgente após 3 Pouco Urgentes)")
+        else:
+            paciente_atendido = heapq.heappop(filaPacientes) #se não tiver prioridade 4, segue fila normal
+    else:
+        paciente_atendido = heapq.heappop(filaPacientes) #atende normal, prioridade
+
+    print(f"Chamando: {paciente_atendido[2].upper()}")
+    print(f"Prioridade: {paciente_atendido[0]} | Idade: {-paciente_atendido[1]}")
+    logging.info(f"Paciente atendido - {paciente_atendido}")
+    #logging.info(f"Paciente atendido - {pacienteEspecf[2]}, {pacienteEspecf[0]}, {pacienteEspecf[1]}.") # Registra log   
+
+    
+    if paciente_atendido[0] == 3:
+        contadorPoucoUrgente += 1
+    print(f"(Status do contador de 'Pouco Urgentes': {contadorPoucoUrgente})")
 
     exibirMenu()
+
+    
+
 
 
 def exibirFilaPacientes():
@@ -125,7 +128,6 @@ def exibirFilaPacientes():
 
    # logging.info(f"Fila: {len(filaPacientes)} pacientes aguardando.") # Registra log       
     exibirMenu()
-
 
 
 
