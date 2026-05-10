@@ -1,9 +1,3 @@
-Titulo: #
-sUBTITULO: ##
-Lista: -
-Bloco de código: ```cod```
-
-
 # Sistema de fila com prioridade utilizando heap em Python
 
 ## O que é o heap e como ele funciona:
