@@ -35,7 +35,7 @@ def exibirMenu():
         case 3: 
             exibirFilaPacientes()
         case 4: 
-            logging.info("Atendimento finalizado.") # Registra log 
+            logging.info("Atendimento finalizado./n") # Registra log 
 
             print('\n' + '-'*30) #linha separadora
             print('   ATENDIMENTO FINALIZADO')
@@ -119,6 +119,12 @@ def exibirFilaPacientes():
     print('\n' + '-'*30) #linha separadora
     print('      FILA')
     print('-'*30) #linha separadora
+
+    if not filaPacientes:
+        print(f"A fila está vazia no momento.")
+        logging.info(f"Fila está vazia no momento.") # Registra log 
+        exibirMenu()
+        return
 
     # exibe todos os pacientes em ordem real de prioridade
     #o heapq.nsmallest(parm1, parm2) é nativo da biblioteca, onde o parm1 é a qtd de items da fila que quero que percorra e o parm2 é a fila, o heap que ele vai percorrer

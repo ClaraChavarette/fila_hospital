@@ -1,0 +1,24 @@
+10/05/2026 16:43:37 - INFO - Paciente cadastrado (2, -30, 'Maria').
+10/05/2026 16:43:53 - INFO - Paciente cadastrado (1, -60, 'João').
+10/05/2026 16:44:06 - INFO - Paciente cadastrado (3, -31, 'Dito').
+10/05/2026 16:44:23 - INFO - Paciente cadastrado (3, -32, 'Paola').
+10/05/2026 16:44:33 - INFO - Paciente cadastrado (4, -35, 'Xirley').
+10/05/2026 16:44:55 - INFO - Paciente cadastrado (3, -36, 'Luvi').
+10/05/2026 16:45:10 - INFO - Paciente cadastrado (3, -37, 'Dito').
+10/05/2026 16:45:12 - INFO - Fila - Prioridade: 1 - Idade: 60 - Nome: João
+10/05/2026 16:45:12 - INFO - Fila - Prioridade: 2 - Idade: 30 - Nome: Maria
+10/05/2026 16:45:12 - INFO - Fila - Prioridade: 3 - Idade: 37 - Nome: Dito
+10/05/2026 16:45:12 - INFO - Fila - Prioridade: 3 - Idade: 36 - Nome: Luvi
+10/05/2026 16:45:12 - INFO - Fila - Prioridade: 3 - Idade: 32 - Nome: Paola
+10/05/2026 16:45:12 - INFO - Fila - Prioridade: 3 - Idade: 31 - Nome: Dito
+10/05/2026 16:45:12 - INFO - Fila - Prioridade: 4 - Idade: 35 - Nome: Xirley
+10/05/2026 16:45:20 - INFO - Paciente atendido - (1, -60, 'João')
+10/05/2026 16:45:24 - INFO - Paciente atendido - (2, -30, 'Maria')
+10/05/2026 16:45:28 - INFO - Paciente atendido - (3, -37, 'Dito')
+10/05/2026 16:45:31 - INFO - Paciente atendido - (3, -36, 'Luvi')
+10/05/2026 16:45:33 - INFO - Paciente atendido - (3, -32, 'Paola')
+10/05/2026 16:45:35 - INFO - Paciente atendido - (4, -35, 'Xirley')
+10/05/2026 16:45:42 - INFO - Paciente atendido - (3, -31, 'Dito')
+10/05/2026 16:45:46 - INFO - fila está vazia no momento.
+10/05/2026 16:45:57 - INFO - Atendimento finalizado./n
+10/05/2026 16:47:37 - INFO - Fila está vazia no momento.
